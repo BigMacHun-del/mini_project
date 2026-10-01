@@ -1,0 +1,7 @@
+data/
+.DS_Store
+.venv/
+.ipynb_checkpoints/
+
+# Generated analysis outputs
+results/figures/
