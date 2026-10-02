@@ -1,5 +1,9 @@
 # ESS 배터리 수명 예측
 
+| 캠퍼스명 | 캠퍼스 고유 번호 | 이름 |
+|---|---|---|
+| 울산 | U076 | 김대훈 |
+
 초기 100사이클의 충·방전 데이터로 리튬이온 배터리의 최종 사이클 수명(`cycle_life`)을 예측하는 회귀 프로젝트입니다.
 
 ## 프로젝트 개요
@@ -172,7 +176,3 @@ Batch 1에서는 Ridge가 기준선보다 안정적이었지만 Batch 2에서 �
 ## 참고문헌
 
 - Severson, K. A. et al. (2019). Data-driven prediction of battery cycle life before capacity degradation. *Nature Energy*, 4, 383‑391.
-
-## 팀 구성
-
-- 울산캠퍼스 3반 김대훈: EDA, 피처 엔지니어링, 모델 개발, Batch 2 성능 평가
