@@ -1,0 +1,11 @@
+{
+  "features": [
+    "dQ_log_var",
+    "QD_slope",
+    "chargetime_10",
+    "c_rate_1"
+  ],
+  "alpha": 3.1622776601683795,
+  "target": "cycle_life",
+  "test_batch": "Batch 2"
+}
