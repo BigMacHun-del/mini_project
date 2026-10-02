@@ -14,6 +14,39 @@
 
 Batch 2 전체 47개 중 `cycle_life`가 없는 VarCharge·SlowCycle 8개 셀은 오차를 계산할 수 없어 성능 평가에서 제외했습니다.
 
+## 빠른 실행 순서
+
+### 1. 원본 데이터 배치
+
+Git에는 원본 데이터가 포함되지 않습니다. 다음 MAT 파일을 `data/archive/`에 배치합니다.
+
+```text
+data/archive/2017-05-12_batchdata_updated_struct_errorcorrect.mat
+data/archive/2018-02-20_batchdata_updated_struct_errorcorrect.mat
+```
+
+### 2. 환경 설정
+
+```bash
+git clone https://github.com/BigMacHun-del/mini_project.git
+cd mini_project
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+jupyter notebook
+```
+
+### 3. 노트북 순차 실행
+
+| 순서 | 노트북 | 역할 | 주요 생성 결과 |
+|---:|---|---|---|
+| 1 | `00_data_preparation.ipynb` | Batch 1 원본 파싱과 초기 피처 생성 | `data/processed/batch1_*` |
+| 2 | `01_day1_eda_model_strategy.ipynb` | EDA, 가설 검정, 피처·모델 전략 | `results/feature_selection.csv` |
+| 3 | `02_batch2_preparation.ipynb` | Batch 2에 동일한 전처리 적용 | `data/processed/batch2_*`, `results/batch_profile.csv` |
+| 4 | `03_day2_modeling_evaluation.ipynb` | Ridge 학습, Valid, Batch 2 최종 평가 | 성능·예측 CSV, 저장 모델 |
+
+노트북은 반드시 1→4 순서로 실행합니다. `*.executed.ipynb`에서는 데이터를 다시 실행하지 않고도 저장된 결과를 확인할 수 있습니다.
+
 ## 파일 구조
 
 ```text
@@ -40,23 +73,6 @@ mini_project/
 ```
 
 `*.executed.ipynb`는 실행 결과가 저장된 노트북입니다.
-
-## 환경 설정
-
-```bash
-git clone https://github.com/BigMacHun-del/mini_project.git
-cd mini_project
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-원본 MAT 파일은 용량 문제로 Git에 포함하지 않습니다. `data/archive/`에 다음 파일을 배치한 뒤 노트북을 순서대로 실행합니다.
-
-```text
-2017-05-12_batchdata_updated_struct_errorcorrect.mat
-2018-02-20_batchdata_updated_struct_errorcorrect.mat
-```
 
 ## EDA 핵심 결과
 
